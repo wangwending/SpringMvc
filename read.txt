@@ -2,3 +2,5 @@ step1:
 	本地项目提交到github 
 	先Team--commit ; 然后 Team --  Remote
 	
+step2:
+	
