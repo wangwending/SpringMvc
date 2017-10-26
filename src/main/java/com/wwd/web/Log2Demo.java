@@ -3,10 +3,6 @@ package com.wwd.web;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-
-import com.wwd.web.service.AopService;
 
 
 public class Log2Demo {
@@ -17,8 +13,8 @@ public class Log2Demo {
 //		log.warn("warn");
 //		log.error("error");
 		
-		ApplicationContext context = new ClassPathXmlApplicationContext("spring/applicationContext.xml");
-		AopService aopServiceImpl = (AopService) context.getBean("aopService");
-		aopServiceImpl.methodB();
+//		ApplicationContext context = new ClassPathXmlApplicationContext("spring/applicationContext.xml");
+//		AopService aopServiceImpl = (AopService) context.getBean("aopService");
+//		aopServiceImpl.methodB();
 	}
 }

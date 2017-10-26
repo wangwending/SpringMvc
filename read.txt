@@ -3,4 +3,11 @@ step1:
 	先Team--commit ; 然后 Team --  Remote
 	
 step2:
+	本地项目下载
+	import Git Clone URL
+	负责github的项目路径
+	
+	在视图找到 Git Repositories
+	选clone
+	
 	
