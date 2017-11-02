@@ -7,10 +7,16 @@
 	<appenders>
 		<Console name="STDOUT" target="SYSTEM_OUT">
 			<!-- <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss:SSS} %-5p %C (%F:%L) - %m%n"/> -->
-			<PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} %t %-5p %l - %m%n"/>
+			<PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} ${hostName} %t %-5p %l - %m%n"/>
 		</Console>
 
-		<RollingFile name="RollingFile" fileName="${LOG_HOME}/${FILE_NAME}.log" filePattern="${LOG_HOME}/${FILE_NAME}-%d{MM-dd-yyyy}.log.gz">
+		<!-- <RollingFile name="RollingFile" fileName="${LOG_HOME}/${FILE_NAME}.log" filePattern="${LOG_HOME}/${FILE_NAME}-%d{MM-dd-yyyy}.log.gz">
+			<PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} %t %-5p %C (%F:%L) - %m%n"/>
+			<Policies>
+				<TimeBasedTriggeringPolicy />
+			</Policies>
+		</RollingFile> -->
+		<RollingFile name="RollingFile" fileName="${LOG_HOME}/${FILE_NAME}_${hostName}.log" filePattern="${LOG_HOME}/${FILE_NAME}_${hostName}-%d{MM-dd-yyyy}.log.gz">
 			<PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} %t %-5p %C (%F:%L) - %m%n"/>
 			<Policies>
 				<TimeBasedTriggeringPolicy />

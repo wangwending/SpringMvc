@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd">
+
+
+	<!-- 开启定时注解 -->
+	<task:annotation-driven mode="proxy" />
+
+	<!-- 配置调度工厂 -->
+	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+				<!-- <ref bean="quartzJobTrigger" /> -->
+				<!-- <ref bean="quartzMethodInvokeTrigger" /> -->
+			</list>
+		</property>
+	</bean>
+
+
+	<!-- 继承特定的基类 QuartzJobBean start -->
+	<bean id="quartzJobTrigger"
+		class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail" ref="quartzJobSimple" />
+		<!-- 每一分钟运行一次 -->
+		<property name="cronExpression" value="0 0/1 * * * ?" />
+	</bean>
+
+	<bean name="quartzJobSimple"
+		class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+		<property name="jobClass" value="com.wwd.web.job.QuartzJobSimple" />
+	</bean>
+
+	<!-- 继承特定的基类 QuartzJobBean end -->
+
+	<!-- 不继承特定基类 start -->
+	<bean id="quartzMethodInvokeTrigger"
+		class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail">
+			<ref bean="myJobDetail" />
+		</property>
+		<property name="cronExpression">
+			<value>0 0/1 * * * ?</value>
+		</property>
+	</bean>
+
+	<bean id="myJobDetail"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref bean="myJob" />
+		</property>
+		<property name="targetMethod">
+			<value>work</value>
+		</property>
+	</bean>
+	<!-- job的配置结束 -->
+
+	<!-- 工作的bean -->
+	<bean id="myJob" class="com.wwd.web.job.MethodInvokeJobSimple" />
+
+	<!-- 不继承特定基类 end -->
+
+</beans>
