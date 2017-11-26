@@ -10,8 +10,7 @@
 
 	<!-- 如果配置了包扫描 这个配置可以不使用 -->
 	<!-- <context:annotation-config></context:annotation-config> -->
-
-
+	
 	<context:component-scan base-package="com.wwd.web">
 		<context:exclude-filter type="annotation"
 			expression="org.springframework.stereotype.Controller" />
@@ -24,6 +23,10 @@
 		id="aopService" class="com.wwd.web.service.impl.AopServiceImpl"></bean> -->
 
 	<import resource="classpath*:spring/schedu.xml" />
+	<import resource="classpath*:spring/dataSource.xml" />
+	<import resource="classpath*:spring/spring-mybatis.xml" />
+	<import resource="classpath*:spring/mybatis-config.xml" />
+	<import resource="classpath*:spring/resource.xml" />
 	<!-- 开启定时注解 -->
 	<!-- <task:annotation-driven mode="proxy" /> -->
 </beans>

@@ -27,11 +27,28 @@
 		/> -->
 
 	<!-- 这个类用于Spring MVC视图解析 -->
-	<bean id="viewResolver"
+	<!-- <bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="viewClass"
 			value="org.springframework.web.servlet.view.JstlView" />
 		<property name="prefix" value="/WEB-INF/pages/" />
+		<property name="suffix" value=".jsp" /> 
+		<property name="order" value="1"></property>
+	</bean> -->
+	<!-- SpringMVC的视图解析器常用的有4种 InternalResourceViewResolver 将逻辑视图名字解析为一个路径 
+								 BeanNameViewResolver 将逻辑视图名字解析为bean的Name属性，从而根据name属性，找定义View的bean
+								 ResourceBundleResolver 和BeanNameViewResolver一样，只不过定义的view-bean都在一个properties文件中，用这个类进行加载这个properties文件
+								 XmlViewResolver 和ResourceBundleResolver一样，只不过定义的view-bean在一个xml文件中，用这个类来加载xml文件
+		它们都有一个属性 order order值越低 优先级越高 InternalResourceViewResolver 总是返回一个视图 所以优先级配置最低 或者在配置视图解析器链时配置在最末端
+	
+	-->
+	<!-- InternalResourceViewResolver总会返回一个视图所以它在4中视图解析器中优先级定义最低 或者在配置视图解析器链的时候它配置在最末端 防止其他解析器没有使用就跳转了 -->
+	<!-- 这个类用于配置Spring MVC多级目录解析 如view下面有 pages data 目录 目录下面分别有页面 在Controller方法返回的时候加上具体的目录 如pages>>map.jsp 方法return的时候 pages/map -->
+	<bean id="viewResolver2"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<!-- <property name="viewClass"
+			value="org.springframework.web.servlet.view.JstlView" /> -->
+		<property name="prefix" value="/WEB-INF/view/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
 	
