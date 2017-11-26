@@ -17,12 +17,12 @@ public class EchartsController {
 	@RequestMapping("map")
 	public String map() {
 		
-		return "map";
+		return "pages/map";
 	}
 	
-	@RequestMapping("pay")
+	@RequestMapping("test")
 	public String pay() {
 		
-		return "pay";
+		return "pages/pay";
 	}
 }

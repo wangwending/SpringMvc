@@ -7,7 +7,7 @@
 	<!-- spring在启动的时候默认使从WEB_INF下面找applicationContext.xml,如果找不到会从 容器的源文件中加载以applicationContext开头的配置文件 -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>classpath:spring/applicationContext.xml
+		<param-value>classpath:META-INF/spring/applicationContext.xml
 					<!-- classpath:spring/resource.xml,
 					classpath:spring/dataSource.xml,
 					classpath:spring/transaction.xml,
@@ -25,7 +25,7 @@
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
-			<param-value>classpath:spring/springmvc-context.xml</param-value>
+			<param-value>classpath:META-INF/spring/springmvc-context.xml</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>  
 	</servlet>

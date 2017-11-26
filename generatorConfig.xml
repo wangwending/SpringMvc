@@ -9,11 +9,11 @@
 			<property name="suppressAllComments" value="true" />
 		</commentGenerator>
     <jdbcConnection connectionURL="jdbc:mysql://localhost:3306/WwdMysqlTest" driverClass="com.mysql.jdbc.Driver" password="root" userId="root" />
-    <javaModelGenerator targetPackage="SpringMvc" targetProject="???" />
-    <sqlMapGenerator targetPackage="SpringMvc" targetProject="???" />
-    <javaClientGenerator targetPackage="SpringMvc" targetProject="???" type="XMLMAPPER" />
-    <table schema="???" tableName="???">
-      <columnOverride column="???" property="???" />
+    <javaModelGenerator targetPackage="com.wwd.web.model" targetProject="SpringMvc" />
+    <sqlMapGenerator targetPackage="com.wwd.web.mapper.impl" targetProject="SpringMvc" />
+    <javaClientGenerator targetPackage="com.wwd.web.mapper" targetProject="SpringMvc" type="XMLMAPPER" />
+    <table schema="mysql" tableName="Student" domainObjectName="Student">
+      <!-- <columnOverride column="???" property="???" /> -->
     </table>
   </context>
 </generatorConfiguration>

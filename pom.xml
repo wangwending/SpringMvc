@@ -12,7 +12,7 @@
 		<repository>
 			<id>nexus</id>
 			<name>nexus</name>
-			<url>http://106.15.224.68:8081/nexus/content/groups/public</url>
+			<url>http://106.15.226.96:8081/nexus/content/groups/public</url>
 		</repository>
 		<repository>
 			<id>central-repos</id>
@@ -25,6 +25,17 @@
 			<url>http://repo1.maven.org/maven2/</url>
 		</repository>
 	</repositories>
+
+	<distributionManagement>
+		<repository>
+			<id>releases</id>
+			<url>http://admin:admin123@106.15.226.96:8081/nexus/content/repositories/releases</url>
+		</repository>
+		<snapshotRepository>
+			<id>snapshots</id>
+			<url>http://admin:admin123@106.15.226.96:8081/nexus/content/repositories/snapshots</url>
+		</snapshotRepository>
+	</distributionManagement>
 
 	<properties>
 		<spring.version>4.1.4.RELEASE</spring.version>
@@ -286,7 +297,7 @@
 			<artifactId>commons-fileupload</artifactId>
 			<version>1.2.1</version>
 		</dependency>
-		<!-- 定时任务  -->
+		<!-- 定时任务 -->
 		<dependency>
 			<groupId>org.quartz-scheduler</groupId>
 			<artifactId>quartz</artifactId>
