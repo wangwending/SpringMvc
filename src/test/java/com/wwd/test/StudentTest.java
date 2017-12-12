@@ -27,8 +27,7 @@ public class StudentTest extends BaseTest {
 	public void getStudent() {
 
 		Student student = studentMapper.selectByPrimaryKey(1);
-		log.info("student id:{} name:{} age:{} sex:{}", student.getId(), student.getName(), student.getAge(),
-				student.getSex());
+		log.info("student id:{} name:{} age:{} sex:{}", student.getId(), student.getName());
 	}
 
 }

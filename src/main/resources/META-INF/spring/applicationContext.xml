@@ -9,8 +9,8 @@
 
 
 	<!-- 如果配置了包扫描 这个配置可以不使用 -->
-	<!-- <context:annotation-config></context:annotation-config> -->
-	
+	<context:annotation-config></context:annotation-config>
+
 	<context:component-scan base-package="com.wwd.web">
 		<context:exclude-filter type="annotation"
 			expression="org.springframework.stereotype.Controller" />
@@ -22,11 +22,28 @@
 	<!-- <bean id="aopHandler" class="com.wwd.web.aop.AopHandler"></bean> <bean 
 		id="aopService" class="com.wwd.web.service.impl.AopServiceImpl"></bean> -->
 
-	<import resource="classpath*:spring/schedu.xml" />
-	<import resource="classpath*:spring/dataSource.xml" />
-	<import resource="classpath*:spring/spring-mybatis.xml" />
-	<import resource="classpath*:spring/mybatis-config.xml" />
-	<import resource="classpath*:spring/resource.xml" />
+	<import resource="classpath*:META-INF/spring/schedu.xml" />
+	<import resource="classpath*:META-INF/spring/dataSource.xml" />
+	<import resource="classpath*:META-INF/spring/spring-mybatis.xml" />
+	<import resource="classpath*:META-INF/spring/mybatis-config.xml" />
+	<import resource="classpath*:META-INF/spring/resource.xml" />
+	<import resource="classpath*:META-INF/spring/spring-tx.xml" />
+	<import resource="classpath*:META-INF/spring/spring-redisCluster.xml" />
 	<!-- 开启定时注解 -->
 	<!-- <task:annotation-driven mode="proxy" /> -->
+
+	<bean id="clusterConfig"
+		class="org.springframework.data.redis.connection.RedisClusterConfiguration">
+		<!-- <constructor-arg index="0" value="${redis.cluster.node}" /> -->
+		<constructor-arg name="clusterNodes">
+			<set>
+				<value>114.55.173.244:7000</value>
+				<value>114.55.173.244:7001</value>
+				<value>114.55.173.244:7002</value>
+				<value>114.55.173.244:7003</value>
+				<value>114.55.173.244:7004</value>
+				<value>114.55.173.244:7005</value>
+			</set>
+		</constructor-arg>
+	</bean>
 </beans>

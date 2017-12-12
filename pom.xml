@@ -38,8 +38,9 @@
 	</distributionManagement>
 
 	<properties>
-		<spring.version>4.1.4.RELEASE</spring.version>
+		<spring.version>4.2.2.RELEASE</spring.version>
 		<log4j.version>2.6.2</log4j.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
 	<dependencies>
@@ -109,6 +110,18 @@
 			<version>${spring.version}</version>
 		</dependency>
 		<!-- spring end -->
+		<!-- spring redis -->
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-redis</artifactId>
+			<version>1.7.1.RELEASE</version>
+		</dependency>
+		<!-- redis cluster -->
+		<dependency>
+			<groupId>redis.clients</groupId>
+			<artifactId>jedis</artifactId>
+			<version>2.1.0</version>
+		</dependency>
 
 		<!-- oracle -->
 		<dependency>

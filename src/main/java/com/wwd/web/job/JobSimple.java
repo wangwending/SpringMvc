@@ -15,7 +15,7 @@ public class JobSimple {
 	
 	
 	// 每3秒中跑一次
-	@Scheduled(cron = "* * 12 * * ?")
+	@Scheduled(cron = "* * * 1 * ?")
 	public void jobDemo() {
 		System.out.println("简单的定时任务!!!");
 	}
