@@ -29,6 +29,7 @@
 	<import resource="classpath*:META-INF/spring/resource.xml" />
 	<import resource="classpath*:META-INF/spring/spring-tx.xml" />
 	<import resource="classpath*:META-INF/spring/spring-redisCluster.xml" />
+	<import resource="classpath*:META-INF/spring/spring-dubbo-customer.xml" />
 	<!-- 开启定时注解 -->
 	<!-- <task:annotation-driven mode="proxy" /> -->
 

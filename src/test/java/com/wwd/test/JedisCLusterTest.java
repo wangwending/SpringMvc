@@ -22,8 +22,8 @@ public class JedisCLusterTest extends BaseTest{
 	
 	@Test
 	public void jedisTest() {
-		String string = jedisCluster.set("b", "b");
-		log.info("redis cluster info [{}] value [{}]", string, jedisCluster.get("b"));
+//		String string = jedisCluster.set("b", "b");
+		log.info("redis cluster info value [{}]", jedisCluster.get("b"));
 	}
 	
 }
